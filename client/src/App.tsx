@@ -3,7 +3,11 @@ import "./App.css";
 import Home from "./Container/Home";
 
 function App() {
-  return <Home />;
+  return (
+    <div className="position-relative">
+      <Home />
+    </div>
+  );
 }
 
 export default App;
