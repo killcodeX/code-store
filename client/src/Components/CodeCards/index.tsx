@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { CgShutterstock, CgPen, CgTrashEmpty } from "react-icons/cg";
 import {
   CardWrapper,
@@ -10,8 +10,12 @@ import {
   EditIconWrapper,
   DeleteIconWrapper,
 } from "./style";
+import { getDisplayPost } from "./../../Redux/Actions/postActions";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function CodeCard() {
+  const dispatch = useDispatch();
+
   return (
     <CardWrapper>
       <CardTitle>Apply Redux to a Modern React Hooks Application</CardTitle>
@@ -22,7 +26,7 @@ export default function CodeCard() {
       </CardDescription>
       <CardCategory>CSS</CardCategory>
       <OptionWrapper>
-        <DisplayIconWrapper>
+        <DisplayIconWrapper onClick={() => dispatch(getDisplayPost())}>
           <CgShutterstock />
         </DisplayIconWrapper>
         <EditIconWrapper>

@@ -1,7 +1,14 @@
-import { ThemeChange } from "../Actions/actionConstant";
+import {
+  ThemeChange,
+  AddPost,
+  DisplayPost,
+  EditPost,
+  DeletePost,
+} from "../Actions/actionConstant";
 
 const initialState = {
   theme: false,
+  displayP: false,
 };
 
 // Reducers
@@ -11,6 +18,11 @@ export const CodeReducer = (state = initialState, action) => {
       return {
         ...state,
         theme: !state.theme,
+      };
+    case DisplayPost:
+      return {
+        ...state,
+        displayP: !state.displayP,
       };
     default:
       return state;
