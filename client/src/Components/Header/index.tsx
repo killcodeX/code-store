@@ -15,7 +15,7 @@ export default function Header() {
           </ThemeIconWrapper>
       </ThemeMode>
       <UserProfile>
-          Hi, Aaquib
+          Hi, Aaquib Ahmed
       </UserProfile>
     </HeaderWrapper>
   );

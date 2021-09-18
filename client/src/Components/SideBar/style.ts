@@ -72,6 +72,7 @@ export const Tooltip = styled.span`
 export const SideMenuItems = styled.div`
   position: relative;
   margin: 8px auto;
+  height: 100%;
 `;
 
 export const FormWrapper = styled.div`
@@ -104,9 +105,8 @@ export const SearchIconWrapper = styled.div`
   background: #1d1b31;
   color: #fff;
 
-  &hover {
+  &:hover {
     cursor: pointer;
-    background: red;
   }
 `;
 
@@ -152,4 +152,30 @@ export const LangData = styled.div`
     cursor: pointer;
     padding: 2px 5px;
   }
+`;
+
+export const LogOutWrapper = styled.div`
+  position: absolute;
+  bottom: 15%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const LogIconWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  font-size: 25px;
+  background: #1d1b31;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 10px;
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+export const LogOutText = styled.div`
+  color: #fff;
+  opacity: ${(props) => (props.open ? "1" : "0")};
 `;

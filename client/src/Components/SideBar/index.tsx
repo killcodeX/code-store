@@ -6,6 +6,7 @@ import {
   CgMenu,
   CgSearch,
   CgMonday,
+  CgLogOut
 } from "react-icons/cg";
 import {
   SideBarWrapper,
@@ -23,6 +24,9 @@ import {
   LanguageHead,
   LanguageOptions,
   LangData,
+  LogOutWrapper,
+  LogIconWrapper,
+  LogOutText
 } from "./style";
 
 export default function SideBar() {
@@ -51,7 +55,6 @@ export default function SideBar() {
             <CgSearch />
           </SearchIconWrapper>
           <InputWrapper open={open} placeholder="search..." />
-          <Tooltip>Search</Tooltip>
         </FormWrapper>
         <hr />
         <LanguageWrapper>
@@ -65,6 +68,13 @@ export default function SideBar() {
             return <LangData key={item.id}>{item.language}</LangData>;
           })}
         </LanguageOptions>
+
+        <LogOutWrapper>
+          <LogIconWrapper>
+            <CgLogOut/>
+          </LogIconWrapper>
+          {/* <LogOutText open={open}>LogOut</LogOutText> */}
+        </LogOutWrapper>
       </SideMenuItems>
     </SideBarWrapper>
   );
