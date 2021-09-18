@@ -19,7 +19,7 @@ export const lightTheme = {
 };
 export const darkTheme = {
   body: "#1B1C30", // for body background // 1B1C30 // 1a1c22
-  head: "#141529", // for Main mneu head background //141529 //0f0f0f
+  head: "#11101d", // for Main mneu head background //141529 //0f0f0f //11101d
   headText: "#FFF", // for Main menu head text
   headerInputBackground: "#25262c", // for input background in head
   headerInputShadow: "", // for input search in head
