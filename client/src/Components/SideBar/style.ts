@@ -114,6 +114,7 @@ export const LanguageWrapper = styled.div`
   display: flex;
   flex-direction: row;
   color: #fff;
+  margin-left: 10px;
 `;
 
 export const LanguageIconWrapper = styled.div`
