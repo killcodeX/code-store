@@ -2,7 +2,8 @@ import React from "react";
 import Header from "../../Components/Header";
 import SideBar from "../../Components/SideBar";
 import CodeCard from "../../Components/CodeCards";
-import DisplayModal from "../../Components/DisplayModal";
+import DisplayPost from "../DisplayPost";
+import AddPost from "../AddPost";
 import { HomeSectionWrapper } from "./style";
 
 export default function Home() {
@@ -22,7 +23,8 @@ export default function Home() {
           })}
         </div>
       </HomeSectionWrapper>
-      <DisplayModal />
+      <DisplayPost/>
+      <AddPost/>
     </div>
   );
 }
