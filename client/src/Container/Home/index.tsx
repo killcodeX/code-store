@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../../Components/Header";
 import SideBar from "../../Components/SideBar";
+import CodeCard from "../../Components/CodeCards";
 import { HomeSectionWrapper } from "./style";
 
 export default function Home() {
@@ -12,7 +13,9 @@ export default function Home() {
       <HomeSectionWrapper>
         <div className="row">
           {arr.map((item) => {
-            return <div className="col-sm-4">hi</div>;
+            return <div key={item} className="col-sm-4 mb-4">
+              <CodeCard/>
+            </div>;
           })}
         </div>
       </HomeSectionWrapper>
