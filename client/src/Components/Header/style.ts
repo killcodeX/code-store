@@ -11,6 +11,8 @@ export const HeaderWrapper = styled.nav`
   transition: all 0.5s ease;
   border-bottom: 1px solid #bac1ca;
   padding: 17px 20px;
+  color:${props => props.theme.headText};
+  background:${props => props.theme.head};
 `;
 
 export const ThemeMode = styled.div`

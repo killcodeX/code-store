@@ -8,5 +8,5 @@ export const HomeSectionWrapper = styled.section`
   height:100%;
   transition: all 0.5s ease;
   padding: 50px 20px;
-  background: #F3F4FA;
+  background: ${(props) => props.theme.body};
 `;

@@ -1,5 +1,5 @@
 export const lightTheme = {
-  body: "#FFF", // for body background
+  body: "#F7F7FA", // for body background //fff
   head: "#FFF", // for Main mneu head background
   headText: "#0f0f0f", // for Main menu head text
   headerInputBackground: "#FFF", // for input background in head
@@ -18,8 +18,8 @@ export const lightTheme = {
   boxShadow: "0px 8px 20px rgba(0,0,0,0.06)",
 };
 export const darkTheme = {
-  body: "#1a1c22", // for body background
-  head: "#0f0f0f", // for Main mneu head background
+  body: "#1B1C30", // for body background // 1B1C30 // 1a1c22
+  head: "#141529", // for Main mneu head background //141529 //0f0f0f
   headText: "#FFF", // for Main menu head text
   headerInputBackground: "#25262c", // for input background in head
   headerInputShadow: "", // for input search in head
@@ -27,7 +27,7 @@ export const darkTheme = {
   headShadow: "", // for Main menu head shadow
   sideMenu: "#191b1f", // for side menu background
   sideText: "#FFF", // for side menu text
-  cardBackground: "#25262c", // for card background
+  cardBackground: "#26273B", // for card background //201B2C //25262c
   cardShadow: "", // for card shadow
   cardText: "#FFF", // for card text
   tagBackground: "#efefef", // for tag background

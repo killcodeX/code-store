@@ -2,12 +2,13 @@ import styled from "styled-components";
 
 export const CardWrapper = styled.div`
   padding: 10px 15px;
-  background: #fff;
+  background: ${(props) => props.theme.cardBackground};
   border-radius: 5px;
   box-shadow: 0 10px 20px rgb(0 0 0 / 10%), 0 6px 6px rgb(0 0 0 / 10%);
 `;
 
 export const CardTitle = styled.div`
+  color: ${(props) => props.theme.cardText};
   font-size: 19px;
   font-weight: 600;
   line-height: 26px;
@@ -27,8 +28,8 @@ export const CardDescription = styled.div`
 `;
 
 export const CardCategory = styled.div`
-  background: #11101d;
-  color: #fff;
+  background: ${(props) => props.theme.tagBackground};
+  color: ${(props) => props.theme.tagText};
   padding: 2px 8px;
   display: inline-block;
   border-radius: 10px;
@@ -48,8 +49,8 @@ export const DisplayIconWrapper = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 23px;
-  color: #50AE82;
-  background: #E9FBF2;
+  color: #50ae82;
+  background: #e9fbf2;
   width: 2em !important;
   height: 2em !important;
   border-radius: 50%;
@@ -61,8 +62,8 @@ export const EditIconWrapper = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 23px;
-  color: #D958D0;
-  background: #F5F3FF;
+  color: #d958d0;
+  background: #f5f3ff;
   width: 2em !important;
   height: 2em !important;
   border-radius: 50%;
@@ -74,8 +75,8 @@ export const DeleteIconWrapper = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 23px;
-  color: #FD5B5F;
-  background: #FDEEEC;
+  color: #fd5b5f;
+  background: #fdeeec;
   width: 2em !important;
   height: 2em !important;
   border-radius: 50%;
