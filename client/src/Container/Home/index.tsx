@@ -4,6 +4,7 @@ import SideBar from "../../Components/SideBar";
 import CodeCard from "../../Components/CodeCards";
 import DisplayPost from "../DisplayPost";
 import AddPost from "../AddPost";
+import EditPost from "../EditPost";
 import { HomeSectionWrapper } from "./style";
 
 export default function Home() {
@@ -23,8 +24,9 @@ export default function Home() {
           })}
         </div>
       </HomeSectionWrapper>
-      <DisplayPost/>
-      <AddPost/>
+      <DisplayPost />
+      <AddPost />
+      <EditPost />
     </div>
   );
 }

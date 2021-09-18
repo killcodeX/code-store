@@ -1,4 +1,10 @@
-import { ThemeChange, AddPost, DisplayPost, EditPost, DeletePost } from "./actionConstant";
+import {
+  ThemeChange,
+  AddPostModal,
+  DisplayPostModal,
+  EditPostModal,
+  DeletePost,
+} from "./actionConstant";
 
 export const getThemeChange = () => {
   return {
@@ -6,15 +12,20 @@ export const getThemeChange = () => {
   };
 };
 
-export const getDisplayPost = () => {
+export const getDisplayPostModal = () => {
   return {
-    type: DisplayPost,
+    type: DisplayPostModal,
   };
 };
 
-
-export const getEditPost = () => {
+export const getEditPostodal = () => {
   return {
-    type: ThemeChange,
+    type: EditPostModal,
+  };
+};
+
+export const getAddPostodal = () => {
+  return {
+    type: AddPostModal,
   };
 };

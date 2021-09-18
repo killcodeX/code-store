@@ -10,7 +10,7 @@ import {
   EditIconWrapper,
   DeleteIconWrapper,
 } from "./style";
-import { getDisplayPost } from "./../../Redux/Actions/postActions";
+import { getDisplayPostModal, getEditPostodal } from "./../../Redux/Actions/postActions";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function CodeCard() {
@@ -26,10 +26,10 @@ export default function CodeCard() {
       </CardDescription>
       <CardCategory>CSS</CardCategory>
       <OptionWrapper>
-        <DisplayIconWrapper onClick={() => dispatch(getDisplayPost())}>
+        <DisplayIconWrapper onClick={() => dispatch(getDisplayPostModal())}>
           <CgShutterstock />
         </DisplayIconWrapper>
-        <EditIconWrapper>
+        <EditIconWrapper onClick={() => dispatch(getEditPostodal())}>
           <CgPen />
         </EditIconWrapper>
         <DeleteIconWrapper>

@@ -1,7 +1,7 @@
 // 
 
 export const ThemeChange = "THEME_CHNAGE";
-export const AddPost = "Add_POST";
-export const DisplayPost = "DISPLAY_POST";
-export const EditPost = "EDIT_POST";
+export const AddPostModal = "ADD_POST_MODAL";
+export const DisplayPostModal = "DISPLAY_POST_MODAL";
+export const EditPostModal = "EDIT_POST_MODAL";
 export const DeletePost = "DELETE_POST";
