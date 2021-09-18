@@ -75,6 +75,27 @@ export const SideMenuItems = styled.div`
   height: 100%;
 `;
 
+export const AddPostWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  color: #fff;
+  //margin-left: 10px;
+  cursor: pointer;
+  padding: 2px 10px;
+  border-radius: 4px;
+  &:hover {
+    background: #fff;
+    color: #11101d;
+  }
+`;
+
+export const AddIconWrapper = styled.div`
+  display: flex;
+  font-size: 25px;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const FormWrapper = styled.div`
   position: relative;
   overflow: hidden;

@@ -4,9 +4,10 @@ import {
   CgCode,
   CgFormatRight,
   CgMenu,
+  CgMathPlus,
   CgSearch,
   CgMonday,
-  CgLogOut
+  CgLogOut,
 } from "react-icons/cg";
 import {
   SideBarWrapper,
@@ -15,9 +16,10 @@ import {
   LogoDetails,
   LogoWrapper,
   SideMenuItems,
+  AddPostWrapper,
+  AddIconWrapper,
   FormWrapper,
   InputWrapper,
-  Tooltip,
   SearchIconWrapper,
   LanguageWrapper,
   LanguageIconWrapper,
@@ -26,10 +28,13 @@ import {
   LangData,
   LogOutWrapper,
   LogIconWrapper,
-  LogOutText
+  LogOutText,
 } from "./style";
+import {getAddPostodal} from "../../Redux/Actions/postActions";
+import { useDispatch } from "react-redux";
 
 export default function SideBar() {
+  const dispatch = useDispatch()
   const [open, setOpen] = useState(false);
   return (
     <SideBarWrapper open={open}>
@@ -50,6 +55,14 @@ export default function SideBar() {
 
       <hr />
       <SideMenuItems>
+        <AddPostWrapper onClick={() => dispatch(getAddPostodal())}>
+          <AddIconWrapper>
+            <CgMathPlus />
+          </AddIconWrapper>
+          <LanguageHead open={open}>Add New Snippet</LanguageHead>
+        </AddPostWrapper>
+        <hr />
+
         <FormWrapper open={open}>
           <SearchIconWrapper open={open}>
             <CgSearch />
@@ -57,6 +70,7 @@ export default function SideBar() {
           <InputWrapper open={open} placeholder="search..." />
         </FormWrapper>
         <hr />
+
         <LanguageWrapper>
           <LanguageIconWrapper>
             <CgMonday />
@@ -71,7 +85,7 @@ export default function SideBar() {
 
         <LogOutWrapper>
           <LogIconWrapper>
-            <CgLogOut/>
+            <CgLogOut />
           </LogIconWrapper>
           {/* <LogOutText open={open}>LogOut</LogOutText> */}
         </LogOutWrapper>
