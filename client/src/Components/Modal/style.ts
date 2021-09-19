@@ -22,3 +22,12 @@ export const CloseIconWrapper = styled.div`
   font-size: 35px;
   cursor: pointer;
 `;
+
+export const ModalBody = styled.div`
+  padding: 25px 35px;
+  height: 100%;
+
+  @media(max-width:480px){
+    padding:25px 20px;
+  }
+`;

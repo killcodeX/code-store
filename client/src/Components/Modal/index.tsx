@@ -1,10 +1,9 @@
 import React from "react";
 import { CgMoveRight } from "react-icons/cg";
-import { SideModalWrapper, ModalHeader, CloseIconWrapper } from "./style";
+import { SideModalWrapper, ModalHeader, CloseIconWrapper, ModalBody } from "./style";
 import { useDispatch } from "react-redux";
 
-
-export default function Modal({display, close, children}) {
+export default function Modal({ display, close, children }) {
   const dispatch = useDispatch();
 
   return (
@@ -14,7 +13,7 @@ export default function Modal({display, close, children}) {
           <CgMoveRight />
         </CloseIconWrapper>
       </ModalHeader>
-      { children }
+      <ModalBody>{children}</ModalBody>
     </SideModalWrapper>
   );
 }
