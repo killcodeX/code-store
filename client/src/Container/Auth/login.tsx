@@ -92,7 +92,7 @@ export default function Login() {
               )}
             </Form>
             <div className="pt-4">
-              Not a member? <Link to="/register">Register</Link> now !
+              Not a member? <Link style={{textDecoration:'none'}} to="/register">Register</Link> now !
             </div>
           </CardWrapper>
         </AuthBody>

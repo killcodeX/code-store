@@ -126,7 +126,7 @@ export default function Register() {
               )}
             </Form>
             <div className="pt-4">
-              Already a member? <Link to="/login">Login</Link> now !
+              Already a member? <Link style={{textDecoration:'none'}} to="/login">Login</Link> now !
             </div>
           </CardWrapper>
         </AuthBody>
