@@ -1,6 +1,6 @@
 export interface Post {
   title?: string;
-  desc?: string;
+  description?: string;
   language?: string;
   code?: string;
 }
