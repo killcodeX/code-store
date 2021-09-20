@@ -36,6 +36,7 @@ export const createUser = async (req : any, res : any) => {
 export const loginUser = async (req : any, res : any) => {
   const { email, password } = req.body;
   console.log(email, password);
+  console.log(process.env.JWT_SECRET_KEY)
   try {
     const existingUser : any = await UserMessage.findOne({ email });
     if (!existingUser)
