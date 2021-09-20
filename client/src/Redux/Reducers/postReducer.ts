@@ -15,6 +15,7 @@ const initialState = {
   addP: false,
   editP: false,
   allPost: [],
+  postId: "",
 };
 
 // Reducers
@@ -33,14 +34,19 @@ export const CodeReducer = (state = initialState, action) => {
       };
 
     case DisplayPostModal:
+      //postId: action.payload,
       return {
         ...state,
+        postId: state.allPost.filter(
+          (state: any) => state._id == action.payload
+        )[0],
         displayP: !state.displayP,
       };
 
     case EditPostModal:
       return {
         ...state,
+        postId: action.payload,
         editP: !state.editP,
       };
 

@@ -27,7 +27,7 @@ export default function CodeCard({ item }) {
       <CardDescription>{item.description.slice(0,120)+ "..."}</CardDescription>
       <CardCategory>{item.language}</CardCategory>
       <OptionWrapper>
-        <DisplayIconWrapper onClick={() => dispatch(getDisplayPostModal())}>
+        <DisplayIconWrapper onClick={() => dispatch(getDisplayPostModal(item._id))}>
           <CgShutterstock />
         </DisplayIconWrapper>
         <EditIconWrapper onClick={() => dispatch(getEditPostodal())}>

@@ -8,21 +8,21 @@ import { ModalHead, PostTitle, PostDesc, PostTag } from "./style";
 
 export default function DisplayPost() {
   const display = useSelector((state: any) => state.post.displayP);
+  const data = useSelector((state: any) => state.post.postId);
+
   return (
     <Modal display={display} close={getDisplayPostModal}>
       <ModalHead>Display Post</ModalHead>
-      <PostTitle>
-        Frontend Performance Optimization with Code Splitting using React.Lazy &
-        Suspense 🔥
-      </PostTitle>
-      <PostDesc>
-        You will learn how to build and deploy a Serverless API with Cloudflare
-        Workers. Enabling you to effectively manage a highly available backend
-        for your projects.
-      </PostDesc>
-      <PostTag>Python</PostTag>
-      <SyntaxHighlighter language="javascript" style={docco}>
-        console.log('print')
+      <PostTitle>{data.title}</PostTitle>
+      <PostDesc>{data.description}</PostDesc>
+      <PostTag>{data.language}</PostTag>
+      <SyntaxHighlighter
+        className="mt-3 p-2"
+        showLineNumbers={true}
+        language={data.langauge}
+        style={docco}
+      >
+        {data.code}
       </SyntaxHighlighter>
     </Modal>
   );

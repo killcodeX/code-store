@@ -17,9 +17,10 @@ export const getThemeChange = () => {
   };
 };
 
-export const getDisplayPostModal = () => {
+export const getDisplayPostModal = (id) => {
   return {
     type: DisplayPostModal,
+    payload:id,
   };
 };
 
