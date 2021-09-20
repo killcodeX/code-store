@@ -1,4 +1,5 @@
 import axios from "axios";
+import { notification } from "antd";
 
 const baseURL =
   process.env.NODE_ENV === "development" ? "http://localhost:5000" : "";
@@ -14,23 +15,42 @@ ApiFunc.interceptors.request.use((req) => {
   return req;
 });
 
-
+const openNotificationWithIcon = (type, title, message) => {
+  notification[type]({
+    message: title,
+    description: message,
+  });
+};
 
 // User Api
 export const userRegister = async (body) => {
-    try {
-      const { data } = await ApiFunc.post(`/codestore/signup`, body);
-      return data;
-    } catch (error) {
-      console.log(error)
+  try {
+    const { data } = await ApiFunc.post(`/codestore/signup`, body);
+    openNotificationWithIcon("success", "Signup Successful", "");
+    return data;
+  } catch (error: any) {
+    if (error.response) {
+      openNotificationWithIcon(
+        "error",
+        "Signup Failed",
+        error.response.data.message
+      );
     }
-  };
-  
-  export const userLogin = async (body) => {
-    try {
-      const { data } = await ApiFunc.post(`/codestore/signin`, body);
-      return data;
-    } catch (error) {
-      console.log(error)
+  }
+};
+
+export const userLogin = async (body) => {
+  try {
+    const { data } = await ApiFunc.post(`/codestore/signin`, body);
+    openNotificationWithIcon("success", "Login Successful", "");
+    return data;
+  } catch (error: any) {
+    if (error.response) {
+      openNotificationWithIcon(
+        "error",
+        "Login Failed",
+        error.response.data.message
+      );
     }
-  };
+  }
+};

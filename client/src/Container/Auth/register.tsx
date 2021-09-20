@@ -42,6 +42,9 @@ export default function Register() {
     onSubmit: (values: SignUp, { resetForm }) => {
       setLoad(true);
       dispatch(receiveSignUp(values, history))
+      setTimeout(() => {
+        setLoad(false)
+      }, 4000)
       //   resetForm({ values: "" });
     },
   });

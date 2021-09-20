@@ -40,6 +40,9 @@ export default function Login() {
     onSubmit: (values, { resetForm }) => {
       setLoad(true);
       dispatch(receiveLogin(values, history));
+      setTimeout(() => {
+        setLoad(false)
+      }, 4000)
       //resetForm({ values: "" });
     },
   });

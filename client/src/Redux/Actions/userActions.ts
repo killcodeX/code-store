@@ -7,8 +7,6 @@ import {
 
 import { userRegister, userLogin } from "../../Api/userApi";
 
-import {login, SignUp} from "../../Interface/interface";
-
 
 export const receiveLogin = (user, history) => async (dispatch) => {
     const result = await userLogin(user);
