@@ -27,6 +27,7 @@ export const getAllPostApi = async () => {
   export const createPostApi = async (body) => {
     try {
       const { data } = await ApiFunc.post(`/codestore/create-post`, body);
+      openNotificationWithIcon("success", "Post Added Successfully", "");
       return data;
     } catch (error: any) {
       if (error.response) {

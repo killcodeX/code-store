@@ -3,6 +3,7 @@ export interface Post {
   description?: string;
   language?: string;
   code?: string;
+  userId?: string;
 }
 
 export interface login {

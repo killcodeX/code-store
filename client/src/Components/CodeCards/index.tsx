@@ -10,21 +10,21 @@ import {
   EditIconWrapper,
   DeleteIconWrapper,
 } from "./style";
-import { getDisplayPostModal, getEditPostodal } from "./../../Redux/Actions/postActions";
+import { Post } from "../../Interface/interface";
+import {
+  getDisplayPostModal,
+  getEditPostodal,
+} from "./../../Redux/Actions/postActions";
 import { useDispatch, useSelector } from "react-redux";
 
-export default function CodeCard() {
+export default function CodeCard({ item }) {
   const dispatch = useDispatch();
 
   return (
     <CardWrapper>
-      <CardTitle>Apply Redux to a Modern React Hooks Application</CardTitle>
-      <CardDescription>
-        You will learn how to apply Redux to a modern React Hooks application.
-        Enabling you to effectively implement Redux and test your application at
-        a high level.
-      </CardDescription>
-      <CardCategory>CSS</CardCategory>
+      <CardTitle>{item.title}</CardTitle>
+      <CardDescription>{item.description.slice(0,120)+ "..."}</CardDescription>
+      <CardCategory>{item.language}</CardCategory>
       <OptionWrapper>
         <DisplayIconWrapper onClick={() => dispatch(getDisplayPostModal())}>
           <CgShutterstock />

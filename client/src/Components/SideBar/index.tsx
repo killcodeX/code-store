@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { lang } from "../../fakeData";
+import { languages } from "../../Helpers/fakeData";
 import {
   CgCode,
   CgFormatRight,
@@ -79,7 +79,7 @@ export default function SideBar() {
           <LanguageHead open={open}>Languages</LanguageHead>
         </LanguageWrapper>
         <LanguageOptions open={open}>
-          {lang.map((item) => {
+          {languages.map((item) => {
             return <LangData key={item.id}>{item.language}</LangData>;
           })}
         </LanguageOptions>
