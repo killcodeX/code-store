@@ -31,6 +31,7 @@ import {
   LogOutText,
 } from "./style";
 import {getAddPostodal} from "../../Redux/Actions/postActions";
+import { receiveLogout } from "../../Redux/Actions/userActions";
 import { useDispatch } from "react-redux";
 
 export default function SideBar() {
@@ -84,7 +85,7 @@ export default function SideBar() {
         </LanguageOptions>
 
         <LogOutWrapper>
-          <LogIconWrapper>
+          <LogIconWrapper onClick={() => dispatch(receiveLogout())}>
             <CgLogOut />
           </LogIconWrapper>
           {/* <LogOutText open={open}>LogOut</LogOutText> */}
