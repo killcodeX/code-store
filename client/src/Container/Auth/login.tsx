@@ -3,6 +3,7 @@ import { Form, Button, Spinner } from "react-bootstrap";
 import { useFormik } from "formik";
 import { login } from "../../Interface/interface";
 import { Link, useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import {
   SectionWrapper,
   CardWrapper,
@@ -10,8 +11,11 @@ import {
   LogoWrapper,
   CardTitle,
 } from "./style";
+import { receiveLogin } from "../../Redux/Actions/userActions";
 
 export default function Login() {
+  const dispatch = useDispatch();
+  const history = useHistory();
   const [load, setLoad] = useState(false);
 
   const validate = (values: login) => {
@@ -35,8 +39,8 @@ export default function Login() {
 
     onSubmit: (values, { resetForm }) => {
       setLoad(true);
-      console.log(values);
-      //   resetForm({ values: "" });
+      dispatch(receiveLogin(values, history));
+      //resetForm({ values: "" });
     },
   });
   return (
@@ -92,7 +96,11 @@ export default function Login() {
               )}
             </Form>
             <div className="pt-4">
-              Not a member? <Link style={{textDecoration:'none'}} to="/register">Register</Link> now !
+              Not a member?{" "}
+              <Link style={{ textDecoration: "none" }} to="/register">
+                Register
+              </Link>{" "}
+              now !
             </div>
           </CardWrapper>
         </AuthBody>

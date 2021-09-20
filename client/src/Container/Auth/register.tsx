@@ -3,6 +3,7 @@ import { Form, Button, Spinner } from "react-bootstrap";
 import { useFormik } from "formik";
 import { SignUp } from "../../Interface/interface";
 import { Link, useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import {
   SectionWrapper,
   CardWrapper,
@@ -10,8 +11,11 @@ import {
   LogoWrapper,
   CardTitle,
 } from "./style";
+import { receiveSignUp } from "../../Redux/Actions/userActions";
 
 export default function Register() {
+  const dispatch = useDispatch()
+  const history = useHistory()
   const [load, setLoad] = useState(false);
 
   const validate = (values: SignUp) => {
@@ -37,7 +41,7 @@ export default function Register() {
 
     onSubmit: (values: SignUp, { resetForm }) => {
       setLoad(true);
-      console.log(values);
+      dispatch(receiveSignUp(values, history))
       //   resetForm({ values: "" });
     },
   });

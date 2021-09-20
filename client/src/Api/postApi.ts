@@ -1,0 +1,1 @@
+import { ApiFunc } from "./userApi";
