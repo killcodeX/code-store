@@ -14,6 +14,7 @@ import { Post } from "../../Interface/interface";
 import {
   getDisplayPostModal,
   getEditPostodal,
+  deletePost
 } from "./../../Redux/Actions/postActions";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -32,7 +33,7 @@ export default function CodeCard({ item }) {
         <EditIconWrapper onClick={() => dispatch(getEditPostodal())}>
           <CgPen />
         </EditIconWrapper>
-        <DeleteIconWrapper>
+        <DeleteIconWrapper onClick={() => dispatch(deletePost(item._id))}>
           <CgTrashEmpty />
         </DeleteIconWrapper>
       </OptionWrapper>

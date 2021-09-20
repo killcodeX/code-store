@@ -21,3 +21,18 @@ export const getAllPost = async (req: any, res: any) => {
     res.status(404).json({ message: error.message });
   }
 };
+
+
+// Delete Controllers
+export const getdeletePost = async (req : any, res : any) => {
+  const { id } = req.params;
+  if(id == req.userId){
+    res.status(404).json({ message: 'Not Authorized' });
+  }
+  try {
+    //await PostMessage.findByIdAndDelete(id);
+    res.status(200).json({ result: 'Post Removed Successfully !!!' });
+  } catch (error : any) {
+    res.status(404).json({ message: error.message });
+  }
+};

@@ -8,34 +8,49 @@ const openNotificationWithIcon = (type, title, message) => {
   });
 };
 
-
 export const getAllPostApi = async () => {
-    try {
-      const { data } = await ApiFunc.get(`/codestore/get-all-posts`);
-      return data;
-    } catch (error: any) {
-      if (error.response) {
-        openNotificationWithIcon(
-          "error",
-          "Fetching All Posts Failed",
-          error.response.data.message
-        );
-      }
+  try {
+    const { data } = await ApiFunc.get(`/codestore/get-all-posts`);
+    return data;
+  } catch (error: any) {
+    if (error.response) {
+      openNotificationWithIcon(
+        "error",
+        "Fetching All Posts Failed",
+        error.response.data.message
+      );
     }
-  };
+  }
+};
 
-  export const createPostApi = async (body) => {
-    try {
-      const { data } = await ApiFunc.post(`/codestore/create-post`, body);
-      openNotificationWithIcon("success", "Post Added Successfully", "");
-      return data;
-    } catch (error: any) {
-      if (error.response) {
-        openNotificationWithIcon(
-          "error",
-          "Adding Posts Failed",
-          error.response.data.message
-        );
-      }
+export const createPostApi = async (body) => {
+  try {
+    const { data } = await ApiFunc.post(`/codestore/create-post`, body);
+    openNotificationWithIcon("success", "Post Added Successfully", "");
+    return data;
+  } catch (error: any) {
+    if (error.response) {
+      openNotificationWithIcon(
+        "error",
+        "Adding Post Failed",
+        error.response.data.message
+      );
     }
-  };
+  }
+};
+
+export const deletePostApi = async (id) => {
+  try {
+    const { data } = await ApiFunc.delete(`/codestore/delete-post/${id}`);
+    openNotificationWithIcon("success", "Post Deleted Successfully", "");
+    return data;
+  } catch (error: any) {
+    if (error.response) {
+      openNotificationWithIcon(
+        "error",
+        "Deleting Post Failed",
+        error.response.data.message
+      );
+    }
+  }
+};

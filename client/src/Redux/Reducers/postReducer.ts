@@ -50,6 +50,20 @@ export const CodeReducer = (state = initialState, action) => {
         allPost: action.payload,
       };
 
+    case CreatePost:
+      return {
+        ...state,
+        allPost: [action.payload, ...state.allPost],
+      };
+
+    case DeletePost:
+      return {
+        ...state,
+        allPost: state.allPost.filter(
+          (item: any) => item._id !== action.payload
+        ),
+      };
+
     default:
       return state;
   }

@@ -30,7 +30,7 @@ export default function Home() {
           ) : (
             posts.map((item: Post) => {
               return (
-                <div key={item.userId} className="col-sm-4 mb-4">
+                <div key={item._id} className="col-sm-4 mb-4">
                   <CodeCard item={item} />
                 </div>
               );

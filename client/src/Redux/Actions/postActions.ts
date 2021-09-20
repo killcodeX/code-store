@@ -9,7 +9,7 @@ import {
   DeletePost,
 } from "./actionConstant";
 
-import { getAllPostApi, createPostApi } from "../../Api/postApi";
+import { getAllPostApi, createPostApi, deletePostApi } from "../../Api/postApi";
 
 export const getThemeChange = () => {
   return {
@@ -48,5 +48,21 @@ export const createPost = (body) => async (dispatch) => {
   dispatch({
     type: CreatePost,
     payload: result,
+  });
+}
+
+export const editPost = (body) => async (dispatch) => {
+  // const result = await createPostApi(body)
+  // dispatch({
+  //   type: CreatePost,
+  //   payload: result,
+  // });
+}
+
+export const deletePost = (id) => async (dispatch) => {
+  await deletePostApi(id)
+  dispatch({
+    type: DeletePost,
+    payload: id,
   });
 }
