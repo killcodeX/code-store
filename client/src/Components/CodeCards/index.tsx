@@ -30,7 +30,7 @@ export default function CodeCard({ item }) {
         <DisplayIconWrapper onClick={() => dispatch(getDisplayPostModal(item._id))}>
           <CgShutterstock />
         </DisplayIconWrapper>
-        <EditIconWrapper onClick={() => dispatch(getEditPostodal())}>
+        <EditIconWrapper onClick={() => dispatch(getEditPostodal(item._id))}>
           <CgPen />
         </EditIconWrapper>
         <DeleteIconWrapper onClick={() => dispatch(deletePost(item._id))}>

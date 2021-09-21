@@ -46,8 +46,11 @@ export const CodeReducer = (state = initialState, action) => {
     case EditPostModal:
       return {
         ...state,
-        postId: action.payload,
         editP: !state.editP,
+        postId: state.allPost.filter(
+          (state: any) => state._id == action.payload
+        )[0],
+        displayP: !state.displayP,
       };
 
     case GetAllPosts:

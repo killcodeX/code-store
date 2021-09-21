@@ -24,9 +24,10 @@ export const getDisplayPostModal = (id) => {
   };
 };
 
-export const getEditPostodal = () => {
+export const getEditPostodal = (id) => {
   return {
     type: EditPostModal,
+    payload: id,
   };
 };
 
