@@ -7,7 +7,7 @@ export const SideModalWrapper = styled.div`
   height: 100vh;
   width: ${(props) => (props.open ? "95%" : "0")};
   background: ${(props) => props.theme.cardBackground};
-  padding: 46px 14px;
+  padding: 6px 14px;
   z-index: 99;
   transition: all 0.5s ease;
   opacity: ${(props) => (props.open ? "1" : "0")};
@@ -27,6 +27,7 @@ export const CloseIconWrapper = styled.div`
 export const ModalBody = styled.div`
   padding: 25px 35px;
   height: 100%;
+  margin-bottom: 200px;
 
   @media(max-width:480px){
     padding:25px 20px;
