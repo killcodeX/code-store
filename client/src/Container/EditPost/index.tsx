@@ -10,7 +10,7 @@ import { ModalHead, FormLabel } from "./style";
 
 export default function EditPost() {
   const display = useSelector((state: any) => state.post.editP);
-  const post = useSelector((state: any) => state.post.postId)
+  const post = useSelector((state: any) => state.post.postId);
   const dispatch = useDispatch();
 
   const validate = (values: Post) => {
@@ -70,6 +70,7 @@ export default function EditPost() {
         <Form.Group className="pt-3" controlId="description">
           <FormLabel>Description</FormLabel>
           <Form.Control
+            style={{ height: "100px" }}
             as="textarea"
             placeholder="Enter Code description"
             value={formik.values.description}
@@ -104,6 +105,7 @@ export default function EditPost() {
         <Form.Group className="pt-3 mb-3" controlId="code">
           <FormLabel>Code</FormLabel>
           <Form.Control
+            style={{ height: "200px" }}
             as="textarea"
             placeholder="Enter Code"
             value={formik.values.code}

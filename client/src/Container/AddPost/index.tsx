@@ -68,6 +68,7 @@ export default function AddPost() {
         <Form.Group className="pt-3" controlId="description">
           <FormLabel>Description</FormLabel>
           <Form.Control
+            style={{ height: "100px" }}
             as="textarea"
             placeholder="Enter Code description"
             value={formik.values.description}
@@ -102,6 +103,7 @@ export default function AddPost() {
           <FormLabel>Code</FormLabel>
           <Form.Control
             as="textarea"
+            style={{ height: "200px" }}
             placeholder="Enter Code"
             value={formik.values.code}
             onChange={formik.handleChange}
