@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { CgClose } from "react-icons/cg";
 import Header from "../../Components/Header";
 import SideBar from "../../Components/SideBar";
 import CodeCard from "../../Components/CodeCards";
@@ -6,12 +7,20 @@ import DisplayPost from "../DisplayPost";
 import AddPost from "../AddPost";
 import EditPost from "../EditPost";
 import { Post } from "../../Interface/interface";
-import { HomeSectionWrapper, NoDataBanner } from "./style";
-import { getAllPost } from "../../Redux/Actions/postActions";
+import {
+  HomeSectionWrapper,
+  NoDataBanner,
+  ClearSearch,
+  ClearIconwrapper,
+  ClearText,
+} from "./style";
+import { getAllPost, clearSearchlang } from "../../Redux/Actions/postActions";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function Home() {
   const dispatch = useDispatch();
+  const search = useSelector((state: any) => state.post.searchP);
+  const searchData = useSelector((state: any) => state.post.searchPost);
   const posts = useSelector((state: any) => state.post.allPost);
 
   useEffect(() => {
@@ -23,24 +32,44 @@ export default function Home() {
       <Header />
       <SideBar />
       <HomeSectionWrapper>
-        <div className="row">
-          {posts?.length == 0 ? (
-            <NoDataBanner>
-              <img
-                src={process.env.PUBLIC_URL + "/assets/start-soon.png"}
-                alt="nodata"
-              />
-            </NoDataBanner>
-          ) : (
-            posts.map((item: Post) => {
+        {search ? (
+          <ClearSearch onClick={() => dispatch(clearSearchlang())}>
+            <ClearIconwrapper>
+              <CgClose />
+            </ClearIconwrapper>
+            <ClearText>Clear search</ClearText>
+          </ClearSearch>
+        ) : null}
+        {search ? (
+          <div className="row">
+            {searchData.map((item: Post) => {
               return (
                 <div key={item._id} className="col-sm-4 mb-4">
                   <CodeCard item={item} />
                 </div>
               );
-            })
-          )}
-        </div>
+            })}
+          </div>
+        ) : (
+          <div className="row">
+            {posts?.length == 0 ? (
+              <NoDataBanner>
+                <img
+                  src={process.env.PUBLIC_URL + "/assets/start-soon.png"}
+                  alt="nodata"
+                />
+              </NoDataBanner>
+            ) : (
+              posts.map((item: Post) => {
+                return (
+                  <div key={item._id} className="col-sm-4 mb-4">
+                    <CodeCard item={item} />
+                  </div>
+                );
+              })
+            )}
+          </div>
+        )}
       </HomeSectionWrapper>
       <DisplayPost />
       <AddPost />

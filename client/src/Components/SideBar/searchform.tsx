@@ -7,9 +7,14 @@ import {
   SearchSuggestion,
   SearchSuggestionItem,
 } from "./style";
+import {
+  getSearchLang,
+  clearSearchlang,
+} from "../../Redux/Actions/postActions";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function Searchform({ open }) {
+  const dispatch = useDispatch();
   const [searchValue, setSearchValue] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const allPost = useSelector((state: any) => state.post.allPost);
@@ -27,12 +32,12 @@ export default function Searchform({ open }) {
 
   const handleSelect = (item) => {
     setSearchValue(item.title);
-    //dispatch(getSearchData(item))
+    dispatch(getSearchLang(item));
     setSuggestions([]);
   };
 
   const clearSearch = () => {
-    //ispatch(clearSearchData())
+    dispatch(clearSearchlang())
     setSearchValue("");
   };
 

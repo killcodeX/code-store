@@ -7,6 +7,8 @@ import {
   CreatePost,
   EditPost,
   DeletePost,
+  SearchLang,
+  ClearSearchLang,
   FilterLanguage
 } from "./actionConstant";
 
@@ -70,9 +72,18 @@ export const deletePost = (id) => async (dispatch) => {
   });
 }
 
-export const getSearchData = () => {
-  
+export const getSearchLang = (data) => {
+  return {
+    type: SearchLang,
+    payload: [data],
+  };
 }
+
+export const clearSearchlang = () => {
+  return {
+    type: ClearSearchLang,
+  };
+};
 
 export const filterbyLanguage = (lang) => async (dispatch) =>{
   console.log(lang);

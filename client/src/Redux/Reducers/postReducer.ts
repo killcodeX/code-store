@@ -7,6 +7,8 @@ import {
   CreatePost,
   EditPost,
   DeletePost,
+  SearchLang,
+  ClearSearchLang,
 } from "../Actions/actionConstant";
 
 const initialState = {
@@ -14,6 +16,8 @@ const initialState = {
   displayP: false,
   addP: false,
   editP: false,
+  searchP: false,
+  searchPost: [],
   allPost: [],
   postId: "",
 };
@@ -71,6 +75,20 @@ export const CodeReducer = (state = initialState, action) => {
         allPost: state.allPost.filter(
           (item: any) => item._id !== action.payload
         ),
+      };
+
+    case SearchLang:
+      return {
+        ...state,
+        searchP: true,
+        searchPost: action.payload,
+      };
+
+    case ClearSearchLang:
+      return {
+        ...state,
+        searchP: false,
+        searchPost: [],
       };
 
     default:
