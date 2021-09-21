@@ -1,13 +1,15 @@
 import React, { useState } from "react";
+import { message } from "antd";
 import { languages } from "../../Helpers/fakeData";
 import {
   CgCode,
   CgFormatRight,
   CgMenu,
   CgMathPlus,
-  CgSearch,
   CgMonday,
   CgLogOut,
+  CgFolderAdd,
+  CgAttachment,
 } from "react-icons/cg";
 import {
   SideBarWrapper,
@@ -25,18 +27,43 @@ import {
   LanguageIconWrapper,
   LanguageHead,
   LanguageOptions,
+  LanguageSelect,
   LangData,
   LogOutWrapper,
   LogIconWrapper,
   LogOutText,
+  AddButton,
 } from "./style";
-import {getAddPostodal} from "../../Redux/Actions/postActions";
+import {
+  getAddPostodal,
+  filterbyLanguage,
+} from "../../Redux/Actions/postActions";
 import { receiveLogout } from "../../Redux/Actions/userActions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import Searchform from "./searchform";
 
 export default function SideBar() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
+  const [addLang, setAddLang] = useState("");
+
+  const handleFilterLang = (e) => {
+    if(!e.target.value){
+      message.error("Please select language");
+    } else{
+      dispatch(filterbyLanguage(e.target.value));
+    }
+  };
+
+  const handleAddLang = (e) => {
+    e.preventDefault();
+    if (addLang) {
+      alert(addLang);
+    } else {
+      message.error("Please add language");
+    }
+  };
+
   return (
     <SideBarWrapper open={open}>
       {!open ? (
@@ -63,34 +90,56 @@ export default function SideBar() {
           <LanguageHead open={open}>Add New Snippet</LanguageHead>
         </AddPostWrapper>
         <hr />
-
-        <FormWrapper open={open}>
-          <SearchIconWrapper open={open}>
-            <CgSearch />
-          </SearchIconWrapper>
-          <InputWrapper open={open} placeholder="search..." />
-        </FormWrapper>
+        <Searchform open={open} />
         <hr />
-
         <LanguageWrapper>
           <LanguageIconWrapper>
             <CgMonday />
           </LanguageIconWrapper>
-          <LanguageHead open={open}>Languages</LanguageHead>
+          <LanguageHead open={open}>Filter Languages</LanguageHead>
         </LanguageWrapper>
-        <LanguageOptions open={open}>
+        <LanguageSelect open={open} onChange={handleFilterLang}>
+          <option value="">Select Language</option>
           {languages.map((item) => {
             return <LangData key={item.id}>{item.language}</LangData>;
           })}
-        </LanguageOptions>
-
+        </LanguageSelect>
+        <hr />
+        <form onSubmit={handleAddLang}>
+          <LanguageWrapper>
+            <LanguageIconWrapper>
+              <CgFolderAdd />
+            </LanguageIconWrapper>
+            <LanguageHead open={open}>Add Language</LanguageHead>
+          </LanguageWrapper>
+          <FormWrapper open={open} className="mt-3">
+            <SearchIconWrapper open={open}>
+              <CgAttachment />
+            </SearchIconWrapper>
+            <InputWrapper
+              open={open}
+              placeholder="add..."
+              value={addLang}
+              onChange={(e) => setAddLang(e.target.value)}
+            />
+          </FormWrapper>
+          <AddButton type="submit" open={open}>
+            Add
+          </AddButton>
+        </form>
+        <hr />
         <LogOutWrapper>
           <LogIconWrapper onClick={() => dispatch(receiveLogout())}>
             <CgLogOut />
           </LogIconWrapper>
-          {/* <LogOutText open={open}>LogOut</LogOutText> */}
         </LogOutWrapper>
       </SideMenuItems>
     </SideBarWrapper>
   );
+}
+
+{
+  /* <LanguageOptions open={open}>
+          
+        </LanguageOptions> */
 }

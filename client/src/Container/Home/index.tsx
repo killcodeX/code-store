@@ -6,12 +6,11 @@ import DisplayPost from "../DisplayPost";
 import AddPost from "../AddPost";
 import EditPost from "../EditPost";
 import { Post } from "../../Interface/interface";
-import { HomeSectionWrapper, HomeBannerWrapper } from "./style";
+import { HomeSectionWrapper, NoDataBanner } from "./style";
 import { getAllPost } from "../../Redux/Actions/postActions";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function Home() {
-  let arr = [1, 2, 3];
   const dispatch = useDispatch();
   const posts = useSelector((state: any) => state.post.allPost);
 
@@ -26,7 +25,12 @@ export default function Home() {
       <HomeSectionWrapper>
         <div className="row">
           {posts?.length == 0 ? (
-            <HomeBannerWrapper>hi</HomeBannerWrapper>
+            <NoDataBanner>
+              <img
+                src={process.env.PUBLIC_URL + "/assets/start-soon.png"}
+                alt="nodata"
+              />
+            </NoDataBanner>
           ) : (
             posts.map((item: Post) => {
               return (

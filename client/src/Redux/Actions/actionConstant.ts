@@ -15,3 +15,4 @@ export const DeletePost = "DELETE_POST";
 export const GetAllPosts = "GET_ALL_POSTS";
 export const CreatePost = "CREATE_POST";
 export const EditPost = "EDIT_POST";
+export const FilterLanguage = "FILTER_LANGUAGE";

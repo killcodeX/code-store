@@ -7,6 +7,7 @@ import {
   CreatePost,
   EditPost,
   DeletePost,
+  FilterLanguage
 } from "./actionConstant";
 
 import { getAllPostApi, createPostApi, deletePostApi } from "../../Api/postApi";
@@ -67,4 +68,16 @@ export const deletePost = (id) => async (dispatch) => {
     type: DeletePost,
     payload: id,
   });
+}
+
+export const getSearchData = () => {
+  
+}
+
+export const filterbyLanguage = (lang) => async (dispatch) =>{
+  console.log(lang);
+  // dispatch({
+  //   type: FilterLanguage,
+  //   payload: id,
+  // });
 }

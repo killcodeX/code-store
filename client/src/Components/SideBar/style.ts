@@ -49,7 +49,8 @@ export const LogoWrapper = styled.div`
   color: #fff;
   font-size: 25px;
   font-weight: 600;
-  transition: all 1.5s ease;
+  opacity: ${(props) => (props.open ? "0" : "1")};
+  transition: all 0.1s ease;
 `;
 
 export const Tooltip = styled.span`
@@ -98,7 +99,7 @@ export const AddIconWrapper = styled.div`
 
 export const FormWrapper = styled.div`
   position: relative;
-  overflow: hidden;
+  //overflow: hidden;
   border-radius: 10px;
 `;
 
@@ -131,6 +132,30 @@ export const SearchIconWrapper = styled.div`
   }
 `;
 
+export const SearchSuggestion = styled.div`
+  position: absolute;
+  //top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f5f5f5;
+  padding: 5px;
+  border: 1px solid #dedede;
+  z-index: 2;
+  // height: 250px;
+  // overflow-y: scroll;
+`;
+
+export const SearchSuggestionItem = styled.div`
+  padding: 5px;
+  border-bottom: 1px solid #dedede;
+
+  &:hover {
+    cursor: pointer;
+    color: white;
+    background: #11101d; //50cd89
+  }
+`;
+
 export const LanguageWrapper = styled.div`
   display: flex;
   flex-direction: row;
@@ -154,6 +179,22 @@ export const LanguageHead = styled.span`
   transition: 0.4s;
 `;
 
+export const LanguageSelect = styled.select`
+  margin: 20px auto;
+  width: ${(props) => (props.open ? "250px" : "0")};
+  height: 40px;
+  opacity: ${(props) => (props.open ? "1" : "0")};
+  background: #1d1b31;
+  padding-left: 15px;
+  font-size: 17px;
+  color: #fff;
+  transition: all 0.5s ease;
+
+  &:focus {
+    outline: none;
+  }
+`;
+
 export const LanguageOptions = styled.div`
   color: #fff;
   padding-left: 10px;
@@ -162,7 +203,7 @@ export const LanguageOptions = styled.div`
   transition: all 0.5s ease;
 `;
 
-export const LangData = styled.div`
+export const LangData = styled.option`
   font-size: 18px;
   font-weight: 300;
   margin: 15px 0;
@@ -173,6 +214,16 @@ export const LangData = styled.div`
     cursor: pointer;
     padding: 2px 5px;
   }
+`;
+
+export const AddButton = styled.button`
+  margin: 15px auto;
+  padding: ${(props) => (props.open ? "5px 107px" : "5px 1px")};
+  border: none;
+  font-size: 18px;
+  border-radius: 5px;
+  opacity: ${(props) => (props.open ? "1" : "0")};
+  transition: all 0.5s ease;
 `;
 
 export const LogOutWrapper = styled.div`
