@@ -11,6 +11,7 @@ import { ModalHead, FormLabel } from "./style";
 export default function AddPost() {
   const dispatch = useDispatch();
   const display = useSelector((state: any) => state.post.addP);
+  const allLang = useSelector((state: any) => state.post.allLang);
 
   const validate = (values: Post) => {
     const errors: Post = {};
@@ -87,9 +88,9 @@ export default function AddPost() {
             // isInvalid={formik.errors.language}
           >
             <option value="">Select Any language</option>
-            {languages.map((item) => {
+            {allLang.map((item) => {
               return (
-                <option key={item.id} value={item.language}>
+                <option key={item._id} value={item.language}>
                   {item.language}
                 </option>
               );

@@ -11,6 +11,7 @@ import { ModalHead, FormLabel } from "./style";
 export default function EditPost() {
   const display = useSelector((state: any) => state.post.editP);
   const post = useSelector((state: any) => state.post.postId);
+  const allLang = useSelector((state: any) => state.post.allLang);
   const dispatch = useDispatch();
 
   const validate = (values: Post) => {
@@ -90,9 +91,9 @@ export default function EditPost() {
             // isInvalid={formik.errors.language}
           >
             <option value="">Select Any language</option>
-            {languages.map((item) => {
+            {allLang.map((item: any) => {
               return (
-                <option key={item.id} value={item.language}>
+                <option key={item._id} value={item.language}>
                   {item.language}
                 </option>
               );

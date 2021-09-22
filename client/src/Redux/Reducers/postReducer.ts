@@ -15,6 +15,8 @@ import {
   AddLang,
 } from "../Actions/actionConstant";
 
+import { languages } from "../../Helpers/fakeData";
+
 const initialState = {
   theme: false,
   displayP: false,
@@ -25,7 +27,7 @@ const initialState = {
   filterPost: [],
   searchPost: [],
   allPost: [],
-  allLang: [],
+  allLang: [...languages],
   postId: "",
 };
 
@@ -127,7 +129,7 @@ export const CodeReducer = (state = initialState, action) => {
     case Alllang:
       return {
         ...state,
-        allLang: action.payload,
+        allLang: [...state.allLang, ...action.payload],
       };
 
     case AddLang:

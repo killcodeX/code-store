@@ -106,6 +106,7 @@ export const getAllLangApi = async () => {
 export const addLangApi = async (body) => {
   try {
     const { data } = await ApiFunc.post(`/codestore/add-language`,body);
+    openNotificationWithIcon("success", "New Language Added Successfully", "");
     return data;
   } catch (error: any) {
     if (error.response) {

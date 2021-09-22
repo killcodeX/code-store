@@ -45,6 +45,7 @@ import Searchform from "./searchform";
 
 export default function SideBar() {
   const dispatch = useDispatch();
+  const allLang = useSelector((state: any) => state.post.allLang);
   const [open, setOpen] = useState(false);
   const [addLang, setAddLang] = useState("");
 
@@ -103,8 +104,12 @@ export default function SideBar() {
         </LanguageWrapper>
         <LanguageSelect open={open} onChange={handleFilterLang}>
           <option value="">Select Language</option>
-          {languages.map((item) => {
-            return <LangData key={item.id}>{item.language}</LangData>;
+          {allLang.map((item) => {
+            return (
+              <LangData key={item._id} value={item.language}>
+                {item.language}
+              </LangData>
+            );
           })}
         </LanguageSelect>
         <hr />
