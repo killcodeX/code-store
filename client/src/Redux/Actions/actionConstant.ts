@@ -19,3 +19,5 @@ export const SearchLang = "SEARCH_LANG";
 export const ClearSearchLang = "CLEAR_SEARCH_LANG";
 export const FilterLanguage = "FILTER_LANGUAGE";
 export const ClearFilterLang = "CLEAR_FILTER_LANGUAGE";
+export const Alllang = "ALL_LANGUAGE";
+export const AddLang = "ADD_LANGUAGE";

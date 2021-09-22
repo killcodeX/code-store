@@ -11,6 +11,8 @@ import {
   ClearSearchLang,
   FilterLanguage,
   ClearFilterLang,
+  Alllang,
+  AddLang,
 } from "../Actions/actionConstant";
 
 const initialState = {
@@ -23,6 +25,7 @@ const initialState = {
   filterPost: [],
   searchPost: [],
   allPost: [],
+  allLang: [],
   postId: "",
 };
 
@@ -84,7 +87,7 @@ export const CodeReducer = (state = initialState, action) => {
         ...state,
         allPost: newAllPost,
       };
-      
+
     case DeletePost:
       return {
         ...state,
@@ -121,6 +124,17 @@ export const CodeReducer = (state = initialState, action) => {
         filterPost: [],
       };
 
+    case Alllang:
+      return {
+        ...state,
+        allLang: action.payload,
+      };
+
+    case AddLang:
+      return {
+        ...state,
+        allLang: [...state.allLang, action.payload],
+      };
     default:
       return state;
   }

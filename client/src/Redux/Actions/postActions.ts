@@ -11,6 +11,8 @@ import {
   ClearSearchLang,
   FilterLanguage,
   ClearFilterLang,
+  Alllang,
+  AddLang
 } from "./actionConstant";
 
 import {
@@ -19,7 +21,13 @@ import {
   EditPostApi,
   deletePostApi,
   filterPostApi,
+  getAllLangApi,
+  addLangApi
 } from "../../Api/postApi";
+
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
 export const getThemeChange = () => {
   return {
@@ -105,3 +113,20 @@ export const clearFilterlang = () => {
     type: ClearFilterLang,
   };
 };
+
+export const getAllLangauge = () => async (dispatch) => {
+  const result = await getAllLangApi();
+  dispatch({
+    type: Alllang,
+    payload: result,
+  });
+}
+
+export const addLangauge = (body) => async (dispatch) => {
+  let data = capitalizeFirstLetter(body)
+  const result = await addLangApi({language:data});
+  dispatch({
+    type: AddLang,
+    payload: result,
+  });
+}

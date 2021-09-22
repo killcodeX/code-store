@@ -37,6 +37,7 @@ import {
 import {
   getAddPostodal,
   filterbyLanguage,
+  addLangauge,
 } from "../../Redux/Actions/postActions";
 import { receiveLogout } from "../../Redux/Actions/userActions";
 import { useDispatch, useSelector } from "react-redux";
@@ -48,20 +49,22 @@ export default function SideBar() {
   const [addLang, setAddLang] = useState("");
 
   const handleFilterLang = (e) => {
-    if(!e.target.value){
+    let value = e.target.value;
+    if (!value) {
       message.error("Please select language");
-    } else{
-      dispatch(filterbyLanguage(e.target.value));
+    } else {
+      dispatch(filterbyLanguage(value));
     }
   };
 
   const handleAddLang = (e) => {
     e.preventDefault();
     if (addLang) {
-      alert(addLang);
+      dispatch(addLangauge(addLang));
     } else {
       message.error("Please add language");
     }
+    setAddLang("");
   };
 
   return (

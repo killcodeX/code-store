@@ -14,7 +14,12 @@ import {
   ClearIconwrapper,
   ClearText,
 } from "./style";
-import { getAllPost, clearSearchlang, clearFilterlang } from "../../Redux/Actions/postActions";
+import {
+  getAllPost,
+  getAllLangauge,
+  clearSearchlang,
+  clearFilterlang,
+} from "../../Redux/Actions/postActions";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function Home() {
@@ -27,6 +32,7 @@ export default function Home() {
 
   useEffect(() => {
     dispatch(getAllPost());
+    dispatch(getAllLangauge());
   }, []);
 
   if (filter) {

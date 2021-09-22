@@ -65,10 +65,23 @@ export const getFilterLang = async (req: any, res: any) => {
 //  Add language
 export const addLanguage = async (req: any, res: any) => {
   const { language } = req.body;
+  console.log(language)
   try {
     const result = await LangMessage.create({
       userId: req.userId,
       language: language,
+    });
+    res.status(200).json(result);
+  } catch (error: any) {
+    res.status(404).json({ message: error.message });
+  }
+};
+
+// get language
+export const getLanguages = async (req: any, res: any) => {
+  try {
+    const result = await LangMessage.find({
+      userId: req.userId,
     });
     res.status(200).json(result);
   } catch (error: any) {

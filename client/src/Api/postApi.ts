@@ -85,3 +85,35 @@ export const filterPostApi = async (body) => {
     }
   }
 };
+
+
+export const getAllLangApi = async () => {
+  try {
+    const { data } = await ApiFunc.get(`/codestore/get-all-languages`);
+    return data;
+  } catch (error: any) {
+    if (error.response) {
+      openNotificationWithIcon(
+        "error",
+        "Getting language failed",
+        error.response.data.message
+      );
+    }
+  }
+};
+
+
+export const addLangApi = async (body) => {
+  try {
+    const { data } = await ApiFunc.post(`/codestore/add-language`,body);
+    return data;
+  } catch (error: any) {
+    if (error.response) {
+      openNotificationWithIcon(
+        "error",
+        "Adding Language failed",
+        error.response.data.message
+      );
+    }
+  }
+};
