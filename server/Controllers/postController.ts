@@ -41,7 +41,7 @@ export const getdeletePost = async (req: any, res: any) => {
     res.status(404).json({ message: "Not Authorized" });
   }
   try {
-    //await PostMessage.findByIdAndDelete(id);
+    await PostMessage.findByIdAndDelete(id);
     res.status(200).json({ result: "Post Removed Successfully !!!" });
   } catch (error: any) {
     res.status(404).json({ message: error.message });
