@@ -16,6 +16,7 @@ import {
 import {
   getAllPostApi,
   createPostApi,
+  EditPostApi,
   deletePostApi,
   filterPostApi,
 } from "../../Api/postApi";
@@ -63,11 +64,11 @@ export const createPost = (body) => async (dispatch) => {
 };
 
 export const editPost = (body) => async (dispatch) => {
-  // const result = await createPostApi(body)
-  // dispatch({
-  //   type: CreatePost,
-  //   payload: result,
-  // });
+  const result = await EditPostApi(body)
+  dispatch({
+    type: EditPost,
+    payload: result,
+  });
 };
 
 export const deletePost = (id) => async (dispatch) => {

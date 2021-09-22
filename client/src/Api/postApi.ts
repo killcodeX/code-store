@@ -39,6 +39,22 @@ export const createPostApi = async (body) => {
   }
 };
 
+export const EditPostApi = async (body) => {
+  try {
+    const { data } = await ApiFunc.put(`/codestore/update-post/`, body);
+    openNotificationWithIcon("success", "Post Updated Successfully", "");
+    return data;
+  } catch (error: any) {
+    if (error.response) {
+      openNotificationWithIcon(
+        "error",
+        "Updating Post Failed",
+        error.response.data.message
+      );
+    }
+  }
+};
+
 export const deletePostApi = async (id) => {
   try {
     const { data } = await ApiFunc.delete(`/codestore/delete-post/${id}`);

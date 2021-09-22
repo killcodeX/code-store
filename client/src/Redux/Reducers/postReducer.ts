@@ -10,7 +10,7 @@ import {
   SearchLang,
   ClearSearchLang,
   FilterLanguage,
-  ClearFilterLang
+  ClearFilterLang,
 } from "../Actions/actionConstant";
 
 const initialState = {
@@ -73,6 +73,18 @@ export const CodeReducer = (state = initialState, action) => {
         allPost: [action.payload, ...state.allPost],
       };
 
+    case EditPost:
+      const newAllPost: any = [...state.allPost];
+      const postIndex = newAllPost.findIndex(
+        (post) => post._id == action.payload._id
+      );
+      newAllPost[postIndex] = action.payload;
+
+      return {
+        ...state,
+        allPost: newAllPost,
+      };
+      
     case DeletePost:
       return {
         ...state,

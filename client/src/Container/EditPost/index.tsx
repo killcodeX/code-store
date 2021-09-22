@@ -45,7 +45,7 @@ export default function EditPost() {
     validate: validate,
     enableReinitialize: true,
     onSubmit: (values: Post, { resetForm }) => {
-      dispatch(editPost(values));
+      dispatch(editPost({ ...values, id: post._id }));
       //resetForm({ values: "" });
     },
   });

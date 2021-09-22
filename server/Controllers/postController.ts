@@ -1,4 +1,5 @@
 import PostMessage from "../Models/PostModel";
+import LangMessage from "../Models/LangModel";
 
 export const createPost = async (req: any, res: any) => {
   let data = {
@@ -16,6 +17,17 @@ export const createPost = async (req: any, res: any) => {
 export const getAllPost = async (req: any, res: any) => {
   try {
     const result = await PostMessage.find({ userId: req.userId });
+    res.status(200).json(result);
+  } catch (error: any) {
+    res.status(404).json({ message: error.message });
+  }
+};
+
+export const getEditPost = async (req: any, res: any) => {
+  try {
+    const result = await PostMessage.findByIdAndUpdate(req.body.id, req.body, {
+      new: true,
+    });
     res.status(200).json(result);
   } catch (error: any) {
     res.status(404).json({ message: error.message });
@@ -41,6 +53,20 @@ export const getFilterLang = async (req: any, res: any) => {
   const { language } = req.body;
   try {
     const result = await PostMessage.find({
+      userId: req.userId,
+      language: language,
+    });
+    res.status(200).json(result);
+  } catch (error: any) {
+    res.status(404).json({ message: error.message });
+  }
+};
+
+//  Add language
+export const addLanguage = async (req: any, res: any) => {
+  const { language } = req.body;
+  try {
+    const result = await LangMessage.create({
       userId: req.userId,
       language: language,
     });
