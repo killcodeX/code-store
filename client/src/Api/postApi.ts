@@ -54,3 +54,18 @@ export const deletePostApi = async (id) => {
     }
   }
 };
+
+export const filterPostApi = async (body) => {
+  try {
+    const { data } = await ApiFunc.post(`/codestore/filter-language`, body);
+    return data;
+  } catch (error: any) {
+    if (error.response) {
+      openNotificationWithIcon(
+        "error",
+        "filtering post failed",
+        error.response.data.message
+      );
+    }
+  }
+};

@@ -14,11 +14,13 @@ import {
   ClearIconwrapper,
   ClearText,
 } from "./style";
-import { getAllPost, clearSearchlang } from "../../Redux/Actions/postActions";
+import { getAllPost, clearSearchlang, clearFilterlang } from "../../Redux/Actions/postActions";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function Home() {
   const dispatch = useDispatch();
+  const filter = useSelector((state: any) => state.post.filterP);
+  const filterData = useSelector((state: any) => state.post.filterPost);
   const search = useSelector((state: any) => state.post.searchP);
   const searchData = useSelector((state: any) => state.post.searchPost);
   const posts = useSelector((state: any) => state.post.allPost);
@@ -27,32 +29,20 @@ export default function Home() {
     dispatch(getAllPost());
   }, []);
 
-  return (
-    <div>
-      <Header />
-      <SideBar />
-      <HomeSectionWrapper>
-        {search ? (
-          <ClearSearch onClick={() => dispatch(clearSearchlang())}>
+  if (filter) {
+    return (
+      <div>
+        <Header />
+        <SideBar />
+        <HomeSectionWrapper>
+          <ClearSearch onClick={() => dispatch(clearFilterlang())}>
             <ClearIconwrapper>
               <CgClose />
             </ClearIconwrapper>
-            <ClearText>Clear search</ClearText>
+            <ClearText>Clear filter</ClearText>
           </ClearSearch>
-        ) : null}
-        {search ? (
           <div className="row">
-            {searchData.map((item: Post) => {
-              return (
-                <div key={item._id} className="col-sm-4 mb-4">
-                  <CodeCard item={item} />
-                </div>
-              );
-            })}
-          </div>
-        ) : (
-          <div className="row">
-            {posts?.length == 0 ? (
+            {filterData?.length == 0 ? (
               <NoDataBanner>
                 <img
                   src={process.env.PUBLIC_URL + "/assets/start-soon.png"}
@@ -60,7 +50,7 @@ export default function Home() {
                 />
               </NoDataBanner>
             ) : (
-              posts.map((item: Post) => {
+              filterData.map((item: Post) => {
                 return (
                   <div key={item._id} className="col-sm-4 mb-4">
                     <CodeCard item={item} />
@@ -69,7 +59,75 @@ export default function Home() {
               })
             )}
           </div>
-        )}
+        </HomeSectionWrapper>
+        <DisplayPost />
+        <AddPost />
+        <EditPost />
+      </div>
+    );
+  }
+
+  if (search) {
+    return (
+      <div>
+        <Header />
+        <SideBar />
+        <HomeSectionWrapper>
+          <ClearSearch onClick={() => dispatch(clearSearchlang())}>
+            <ClearIconwrapper>
+              <CgClose />
+            </ClearIconwrapper>
+            <ClearText>Clear search</ClearText>
+          </ClearSearch>
+          <div className="row">
+            {searchData?.length == 0 ? (
+              <NoDataBanner>
+                <img
+                  src={process.env.PUBLIC_URL + "/assets/start-soon.png"}
+                  alt="nodata"
+                />
+              </NoDataBanner>
+            ) : (
+              searchData.map((item: Post) => {
+                return (
+                  <div key={item._id} className="col-sm-4 mb-4">
+                    <CodeCard item={item} />
+                  </div>
+                );
+              })
+            )}
+          </div>
+        </HomeSectionWrapper>
+        <DisplayPost />
+        <AddPost />
+        <EditPost />
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <Header />
+      <SideBar />
+      <HomeSectionWrapper>
+        <div className="row">
+          {posts?.length == 0 ? (
+            <NoDataBanner>
+              <img
+                src={process.env.PUBLIC_URL + "/assets/start-soon.png"}
+                alt="nodata"
+              />
+            </NoDataBanner>
+          ) : (
+            posts.map((item: Post) => {
+              return (
+                <div key={item._id} className="col-sm-4 mb-4">
+                  <CodeCard item={item} />
+                </div>
+              );
+            })
+          )}
+        </div>
       </HomeSectionWrapper>
       <DisplayPost />
       <AddPost />

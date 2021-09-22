@@ -18,3 +18,4 @@ export const EditPost = "EDIT_POST";
 export const SearchLang = "SEARCH_LANG";
 export const ClearSearchLang = "CLEAR_SEARCH_LANG";
 export const FilterLanguage = "FILTER_LANGUAGE";
+export const ClearFilterLang = "CLEAR_FILTER_LANGUAGE";

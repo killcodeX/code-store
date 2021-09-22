@@ -1,7 +1,7 @@
 const express = require("express");
 import { AuthenticateToken } from "../Middlewares/tokenValidate";
 import { createUser, loginUser } from "../Controllers/userController";
-import {createPost, getAllPost, getdeletePost} from "../Controllers/postController";
+import {createPost, getAllPost, getdeletePost, getFilterLang} from "../Controllers/postController";
 
 const router = express.Router();
 
@@ -13,5 +13,6 @@ router.post("/signin", loginUser);
 router.post("/create-post", AuthenticateToken ,createPost)
 router.get("/get-all-posts", AuthenticateToken, getAllPost)
 router.delete("/delete-post/:id", AuthenticateToken, getdeletePost)
+router.post("/filter-language", AuthenticateToken, getFilterLang)
 
 export default router;
