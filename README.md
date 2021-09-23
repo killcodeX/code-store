@@ -85,19 +85,20 @@ Final Backend Code -> [https://github.com/killcodeX/code-store-back](https://git
   <img src="https://github.com/killcodeX/code-store/blob/main/screenshots/8.png" />
 </p>
 <p align="center">
-  Eidt Post Page
+  Edit Post Page
 </p>
 
 
 ## Overall Functionlity
-- Main Landing Listing Page with search form, Descriptions, Cities and Few hotels
-- Viewing Hotels by search or selecting cities
-- Filtering Hotels by Price or rating parameter
-- Viewing single hotel with full description and booking hotel
-- Getting Reservation details fot booking hotel
-- User can only booked hotel or see their history if ony they are logged in !!
-- Booking Hotel through Razorpay test mode payment simulation
-- Going to my booking page to see history of your booking, all upcoming, cancelled or completed trips.
+- User can Add new code snippet with title, little description, language and code. 
+- Display page with syntax higlighter for better view.
+- Edit page if user wants to update the previous snippet
+- Delete snippet
+- Night mode
+- Search bar with autosuggest functionality
+- You can filter by language the snippets
+- If you find any desired language is not present in predefined language list, you can add it
+- Fully Mobile optimized
 
 
-***Glad to see you here! Show some love by [starring](https://github.com/killcodeX/mern-hotelin) this repo.***
+***Glad to see you here! Show some love by [starring](https://github.com/killcodeX/code-store) this repo.***
