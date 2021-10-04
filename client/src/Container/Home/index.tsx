@@ -29,10 +29,13 @@ export default function Home() {
   const search = useSelector((state: any) => state.post.searchP);
   const searchData = useSelector((state: any) => state.post.searchPost);
   const posts = useSelector((state: any) => state.post.allPost);
+  const firstTimeUser = useSelector((state: any) => state.auth.firstTimeUser);
 
   useEffect(() => {
-    dispatch(getAllPost());
-    dispatch(getAllLangauge());
+    if (!firstTimeUser) {
+      dispatch(getAllPost());
+      dispatch(getAllLangauge());
+    }
   }, []);
 
   if (filter) {
