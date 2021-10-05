@@ -35,7 +35,6 @@ export default function Login() {
     },
   });
 
-  console.log(formik.errors.email)
   return (
     <SectionWrapper src={process.env.PUBLIC_URL + "/assets/outdoor.png"}>
       <div className="container">

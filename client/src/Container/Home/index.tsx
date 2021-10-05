@@ -32,10 +32,9 @@ export default function Home() {
   const firstTimeUser = useSelector((state: any) => state.auth.firstTimeUser);
 
   useEffect(() => {
-    if (!firstTimeUser) {
-      dispatch(getAllPost());
-      dispatch(getAllLangauge());
-    }
+    dispatch(getAllPost());
+    dispatch(getAllLangauge());
+    //console.log("called");
   }, []);
 
   if (filter) {

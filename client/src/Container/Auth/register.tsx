@@ -37,8 +37,6 @@ export default function Register() {
     },
   }); 
 
-  console.log(formik)
-
   return (
     <SectionWrapper src={process.env.PUBLIC_URL + "/assets/outdoor.png"}>
       <div className="container">

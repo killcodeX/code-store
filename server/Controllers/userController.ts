@@ -6,7 +6,7 @@ import { login, register } from "../Interface/interface";
 // for signup
 export const createUser = async (req : any, res : any) => {
   const { fname, lname, email, password } = req.body;
-  console.log(fname, lname, email, password);
+  //console.log(fname, lname, email, password);
   try {
     const existingUser = await UserMessage.findOne({ email });
     if (existingUser)
